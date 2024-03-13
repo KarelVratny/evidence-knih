@@ -42,16 +42,16 @@
     $query = "SELECT isbn, krestni, prijmeni, nazev, popis FROM knihy WHERE 1=1";
 
     if (isset($_POST["isbn"]) && !$_POST["isbn"] == "") {
-        $query .= " AND isbn = '" . $_POST["isbn"] . "'";
+        $query .= " AND isbn = '" . addslashes($_POST["isbn"]) . "'";
     }
     if (isset($_POST["firstName"]) && !$_POST["firstName"] == "") {
-        $query .= " AND krestni = '" . $_POST["firstName"] . "'";
+        $query .= " AND krestni = '" . addslashes($_POST["firstName"]) . "'";
     }
     if (isset($_POST["surname"]) && !$_POST["surname"] == "") {
-        $query .= " AND prijmeni = '" . $_POST["surname"] . "'";
+        $query .= " AND prijmeni = '" . addslashes($_POST["surname"]) . "'";
     }
     if (isset($_POST["bookName"]) && !$_POST["bookName"] == "") {
-        $query .= " AND nazev = '" . $_POST["bookName"] . "'";
+        $query .= " AND nazev = '" . addslashes($_POST["bookName"]) . "'";
     }
 
     if (!$con = mysqli_connect("$host", "$user", "$password", "$db")) {
